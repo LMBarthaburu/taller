@@ -7,7 +7,6 @@ function Registro() {
   const { register , handleSubmit , formState: {errors} } = useForm()
   const urlBE = process.env.REACT_APP_URL_BE
 
-
   const onSubmit = async(data) => {
     const resp = await fetch( `${urlBE}/register`, {
       method: 'POST',
@@ -31,11 +30,11 @@ function Registro() {
             {errors.nombre?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
           </div>
           <div className="my-1">
-            <input type="number" className="input-registro" placeholder="Telefono" id="exampleInputDNI" aria-describedby="Telefono" {...register("telefono", {required: true})}/> 
+            <input type="number" className="input-registro" placeholder="Telefono" id="telefono" aria-describedby="Telefono" {...register("telefono", {required: true})}/> 
             {errors.dni?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
           </div> 
           <div className='my-1'>
-            <input type="number" className="input-registro" placeholder="CUIT" id="exampleInputDNI" aria-describedby="CUIT" {...register("cuit", {required: true})}/> 
+            <input type="number" className="input-registro" placeholder="CUIT" id="cuit" aria-describedby="CUIT" {...register("cuit", {required: true})}/> 
             {errors.dni?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
           </div> 
           <div className='my-1'>
