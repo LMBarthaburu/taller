@@ -1,0 +1,8 @@
+.form-input, .form-text-area{
+  border-radius: 5px;
+  padding: 5px;
+  border-color: lightgrey ;
+}
+.form-input:focus-visible, .form-text-area:focus-visible{
+  outline: none;
+}
