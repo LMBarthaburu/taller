@@ -1,0 +1,8 @@
+.buscador-card-categoria{
+  font-weight: 600;
+}
+@media (max-width:572px){
+  .card-ordenes{
+    padding: 0 10px;
+  }
+}

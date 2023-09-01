@@ -11,6 +11,10 @@
   padding: 5px 10px;
   resize: none;
 }
+.mensaje-error{
+  color: red;
+  font-weight: bold;
+}
 @media (min-width:573px) and (max-width:1022px){
   .agregar-input-box{
     width: 75%;

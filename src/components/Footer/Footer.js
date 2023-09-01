@@ -1,9 +1,10 @@
 import React from 'react'
+import './footer.css'
 
 function Footer() {
   return (
-    <div className='text-center w-100 bg-dark m-0 py-3'>
-      <h6 className='m-0 text-light'>MI TALLER</h6>
+    <div className='text-center w-100 m-0 py-3 footer'>
+      <h2 className='m-0 footer-logo'>MI TALLER</h2>
     </div>
   )
 }

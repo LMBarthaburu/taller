@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './navBar.css'
 
 function NavBar() {
+  const [logeado, setlogin] = useState(false)
+  const [usuario, setUsuario] = useState({})
+
+  const login =()=>{
+    const usuarios = JSON.parse(localStorage.getItem('Usuario'))
+    if(!usuarios){
+      return
+    }else{
+      setUsuario(usuarios)
+      setlogin(usuarios)
+    }
+  }
+
+  useEffect(()=>{
+    login()
+  },[])// eslint-disable-line react-hooks/exhaustive-deps
+
+  const logout=()=>{
+    localStorage.clear('Usuario')
+    window.location.href='/'
+  }
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg bg-light position-sticky w-100 top-0">
+    <>
+      <nav className="navbar navbar-expand-lg">
         <div className="container-fluid d-flex justify-content-between">
-          <a className="navbar-brand fw-bold" href="/#">MI TALLER</a>
+          <a className="navbar-brand" href="/#">MI TALLER</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -18,14 +39,29 @@ function NavBar() {
               <li className="nav-item">
                 <a className="nav-link" href='/#contacto'>Contacto</a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href='/LogIn'>Inicia Sesión</a>
+              <li className="nav-item ">
+                {
+                  logeado? 
+                    <div className="dropdown d-flex align-items-center flex-column">
+                      <button className="nav-link nav-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      {usuario?.user.nombre}
+                      </button>
+                      <ul className='dropdown-menu text-center' aria-labelledby="dropdownMenuButton1">
+                        <li><a className='nav-link' href="/PerfilUsuario">Perfil</a></li>
+                        <li><button className='nav-btn nav-link w-100' onClick={logout}>Cerrar Sesión</button></li>
+                      </ul>
+                    </div>
+                    :                  
+                    <div>
+                      <a className="nav-link" href='/login' name="Iniciar Sesion">Iniciar Sesión</a>
+                    </div>
+                }      
               </li>
             </ul>
           </div>
         </div>
       </nav>
-    </div>
+    </>
   )
 }
 

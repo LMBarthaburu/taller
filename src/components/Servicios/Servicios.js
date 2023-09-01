@@ -4,56 +4,26 @@ import Mecanico from '../../assest/images/mecanico-servicios.png'
 
 function Servicios() {
   return (
-    <div className='W-100 bg-dark pt-5'id='servicios'>
-      <div className='container'>
-        <h1 className='text-light text-center mt-md-3'>Nuestros servicios</h1>
-        <div className="row d-flex align-items-center">
-          <div className='d-none d-md-block col-5 text-center'>
+    <div className='W-100 p-4'id='servicios'>
+      <div className='container card-servicios'>
+        <h1 className='servicios-titulo text-center'>Nuestros servicios</h1>
+        <div className="d-flex align-items-center">
+          <div className='d-none d-md-block col-md-5 col-lg-6 text-center'>
             <img src={Mecanico} alt="Mecanico" />
           </div>
-          <div className='col-12 col-md-7'>
-            <div id="carouselExampleIndicators" className="carousel slide">
-              <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <div className="px-0 ">
-                    <div className="card">
-                      <div className="card-body text-light">
-                        <h3 className="card-title">Panel Administrativo para mecánicos</h3>
-                        <p className="card-text">Podras dar seguimeinto a todas tus reparaciones, mantener actualizado el estado de las mismas y obtener estadisticas sobre el funcionamiento de tu negocio.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="carousel-item">
-                  <div className="px-0 ">
-                    <div className="card">
-                      <div className="card-body text-light">
-                        <h3 className="card-title">Seguimiento de ordenes para los clientes</h3>
-                        <p className="card-text">A traves del numero de reparacion tus clientes podran consultar el estado de su trabajo y el costo de los mismos.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="carousel-item">
-                  <div className="px-0 ">
-                    <div className="card">
-                      <div className="card-body text-light">
-                        <h3 className="card-title">Soporte especializado las 24 hrs</h3>
-                        <p className="card-text">Nuestro equipo tecnico estará disponible las 24hrs para dar repuestas a todas tus necesiadades.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Previous</span>
-              </button>
-              <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Next</span>
-              </button>
-            </div>
+          <div className='servicios-texto col-12 col-md-7 col-lg-6 pe-md-5'>
+            <h3>Con MI TALLER podras:</h3>
+            <h4>Como Usuario Particular:</h4>
+            <ul>
+              <li className='fs-5'>Dar seguimientos a tus reparaciones con tu numero de reparación o tu DNI</li>
+              <li className='fs-5'>Buscar a los mecanicos que necesites segun tus necesidades</li>
+            </ul>
+            <h4>Como Mecánico:</h4>
+            <ul>
+              <li className='fs-5'>Tener un control personaliza de todos tus clientes y reparaciones</li>
+              <li className='fs-5'>Estadisticas sobre el rendimiento de tus trabajos</li>
+              <li className='fs-5'>Servicio de asistencia 24/7</li>
+            </ul>
           </div>
         </div>
       </div>

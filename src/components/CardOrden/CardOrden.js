@@ -1,29 +1,34 @@
 import React from 'react'
+import './cardOrden.css'
 
-function CardOrden() {
+function CardOrden({nombre, telefono, cuit, modelo, serie, fecha, detalle, observaciones, numero, estado, empresa, contacto, localidad, direccion, provincia,reparacion}) {
+
   return (
-    <div className='container py-3'>
-      <h1 className='text-center my-2'>N° de Reaparación: 000000000</h1>
-      <h3 className='text-center my-3'>Estado: Reparado</h3>
-      <div className='d-md-flex justify-content-evenly m-3'>
+    <div className='card-ordenes'>
+      <div>
+        <h2 className='text-center my-2 buscador-card-categoria'>N° de Reaparación: <span className='fw-normal'>{numero}</span></h2>
+        <h4 className='text-center my-3 buscador-card-categoria'>Estado: <span className='fw-normal'>{estado}</span></h4>
+      </div>
+      <hr />
+      <div className="d-md-flex  justify-content-between">
         <div>
-          <h4>Empresa: CamPoder SRL</h4>
-          <h5>Rubro: Jardinería</h5>
-          <h5>Teléfono: 3814010691</h5>
-          <h5>Dirección: Av. Gobernador del campo 918</h5>
-          <h5>Localidad: San Miguel de Tucumán</h5>
-          <h5>Provincia: Tucumán</h5>
+        <h5 className='buscador-card-categoria'>Cliente: <span className='fw-normal'>{nombre}</span></h5>
+          <h5 className='buscador-card-categoria'>Telefono: <span className='fw-normal'> {telefono}</span></h5>
+          <h5 className='buscador-card-categoria'>DNI: <span className='fw-normal'> {cuit}</span></h5>
+          <h5 className='buscador-card-categoria'>Fecha ingreso: <span className='fw-normal'> {fecha}</span></h5>
+          <h5 className='buscador-card-categoria'>Modelo: <span className='fw-normal'> {modelo}</span></h5>
+          <h5 className='buscador-card-categoria'>Número de identificación: <span className='fw-normal'>{serie}</span></h5>
+          <h5 className='buscador-card-categoria'>A reparar: <span className='fw-normal'>{detalle}</span></h5>
+          <h5 className='buscador-card-categoria'>Observaciónes: <span className='fw-normal'> {observaciones}</span></h5>
+          <h5 className='buscador-card-categoria'>Trabajo realizado: <span className='fw-normal'>{reparacion}</span></h5>
+          <h5 className='buscador-card-categoria'>Costo: <span className='fw-normal'>$15000</span></h5>
         </div>
         <div>
-          <h4>Cliente: Luis Barthaburu</h4>
-          <h5>Fecha ingreso: 15/2/2023</h5>
-          <h5>Marca: Stihl</h5>
-          <h5>Modelo: FS450</h5>
-          <h5>Número de identificación: 75895845</h5>
-          <h5>A reparar: Service</h5>
-          <h5>Observaciónes: --</h5>
-          <h5>Trabajo realizado:--</h5>
-          <h5>Costo: $15000</h5>
+          <h5 className='buscador-card-categoria'>Empresa: <span className='fw-normal'>{empresa}</span></h5>
+          <h5 className='buscador-card-categoria'>Teléfono: <span className='fw-normal'>{contacto}</span></h5>
+          <h5 className='buscador-card-categoria'>Dirección: <span className='fw-normal'> {direccion}</span></h5>
+          <h5 className='buscador-card-categoria'>Localidad: <span className='fw-normal'>{localidad}</span></h5>
+          <h5 className='buscador-card-categoria'>Provincia: <span className='fw-normal'> {provincia}</span></h5>
         </div>
       </div>
     </div>
