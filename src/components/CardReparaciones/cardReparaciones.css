@@ -5,3 +5,7 @@
   font-weight: bold;
   outline: none;
 }
+.reparacion-input:focus-visible{
+  outline: none;
+  border: none;
+}

@@ -56,8 +56,6 @@ function CardReparaciones({cliente,telefono,dni,fecha,serie,marca,detalle,observ
           <p className='m-0'>Numero de identificación: {serie}</p>
           <p className='m-0'>Areparar: {detalle}</p>
           <p className='m-0'>Observaciones: {observaciones}</p>
-          <p className='m-0'>Trabajo realizado: {trabajoRealizado}</p>
-          <p className='m-0'>Costo de la reparación: ${costo}</p>
           {
             editar?
               <div>
@@ -74,11 +72,11 @@ function CardReparaciones({cliente,telefono,dni,fecha,serie,marca,detalle,observ
               <div>
                 <div className='d-flex align-items-center'>
                   <label>Trabajo realizado:</label>
-                  <input type="text"  value={trabajoRealizado}  className='border-0 ms-2'/>
+                  <input type="text"  value={trabajoRealizado}  className='border-0 ms-2 reparacion-input' readOnly/>
                 </div>
                 <div className='d-flex align-items-center'>
                   <label>Costo de la reparación:</label>
-                  <input type="number"  value={costo}  className='border-0 ms-2'/>
+                  <input type="number"  value={costo}  className='border-0 ms-2 reparacion-input' readOnly/>
                 </div>
               </div>
           }     
