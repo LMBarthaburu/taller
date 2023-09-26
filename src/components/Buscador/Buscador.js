@@ -21,8 +21,6 @@ function Buscador() {
   const buscador =(event)=>{
     const valor = document.getElementById('buscador').value
     const valorBuscado = data.filter(item =>
-      item.nombre.toLowerCase() === valor.toLowerCase() ||
-      item.serie.toString() === valor ||
       item.numero.toString() === valor ||
       item.cuit.toString() === valor
     );
@@ -45,7 +43,7 @@ function Buscador() {
       <div className='d-none' id='buscador-texto'>
         { buscado.length>0?
           buscado.map(item=>
-          <CardOrden key={item.serie} nombre={item.nombre} telefono={item.telefono} cuit={item.cuit} modelo={item.modelo} fecha={item.fecha} serie={item.serie} detalle={item.detalle} observaciones={item.observaciones} empresa={item.empresa} contacto={item.contacto} localidad={item.localidad} direccion={item.direccion} provincia={item.provincia} reparacion={item.reparacion} estado={item.estado} numero={item.numero}/>
+          <CardOrden key={item.serie} nombre={item.nombre} telefono={item.telefono} cuit={item.cuit} modelo={item.modelo} fecha={item.fecha} serie={item.serie} detalle={item.detalle} observaciones={item.observaciones} empresa={item.empresa} contacto={item.contacto} localidad={item.localidad} direccion={item.direccion} provincia={item.provincia} trabajoRealizado={item.trabajoRealizado} estado={item.estado} numero={item.numero} costo={item.costo} idEmpresa={item.idEmpresa}/>
           ):<h4 className='text-center'>No se encontraron resultados</h4>
         }
       </div>

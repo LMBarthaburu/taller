@@ -59,6 +59,15 @@ function Registro() {
           <div className='my-1'>           
               <input type="text" className="input-registro" name="email" id="email" placeholder="Email" {...register("email", {required: true})} required/> 
           </div>
+          <div className='my-1'>           
+              <select id="rubro" name='rubro' className="input-registro" {...register("rubro", {required: true})}>
+                <option value="#">Seleccione un rubro</option>
+                <option value="jardineria">Jardinerìa</option>
+                <option value="electrodomesticos">Electrodomesticos</option>
+                <option value="refrigeracion">Refrigeraciòn</option>
+                <option value="automotores">Automotores</option>
+              </select>
+          </div>
           <div className='my-1'>
             <input type="password" className="input-registro" name="password" id="password" placeholder="Contraseña" {...register("contrasena", {required: true})} required/>
           </div>
