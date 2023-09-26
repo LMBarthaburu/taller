@@ -1,0 +1,7 @@
+.boton-reparacion-editar{
+  border: none;
+  width: 100vh;
+  border-bottom: 1px solid var(--azul);
+  font-weight: bold;
+  outline: none;
+}

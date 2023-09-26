@@ -10,15 +10,20 @@ function AgregarTrabajo() {
   const [numeroRep, setNumero] = useState()
   const [spinner, setSpinner]=useState(false)
 
-  const getData=()=>{
+  const getData=async ()=>{
     const miDato = JSON.parse(localStorage.getItem('Usuario'))
     const data = miDato.user
+    const res = await fetch(`${urlBE}registro`)
+    const json = await res.json()
+    const registros = json.registros
+    const registroFiltrado = (registros.find(item=>item._id===data._id))
     if (!miDato){
       window.location.href='/' 
     }else{
-      setDatos(data)
+      setDatos(registroFiltrado)
     }
   }
+
   const getReparaciones= async ()=>{
     const res = await fetch(`${urlBE}reparacion`)
     const json = await res.json()
@@ -48,6 +53,7 @@ function AgregarTrabajo() {
     setValue("direccion", datos.direccion)
     setValue("localidad", datos.localidad)
     setValue("provincia", datos.provincia)
+    setValue("idEmpresa", datos._id)
   }, [datos, setValue])
   useEffect(()=>{
     setValue("numero", numeroRep)
@@ -81,12 +87,15 @@ function AgregarTrabajo() {
             <select type="text" className="input-registro" placeholder="estado" id="estado" aria-describedby="Estado de la reparación" {...register("estado", {required: true})}> 
             {errors.estado?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
               <option value="A Reparar">A Reprar</option>
-              <option value="En Reparacion">En Reparación</option>
-              <option value="Reapado">Reparado</option>
+              <option value="Garantia">Garantía</option>
             </select>
           </div> 
         </div>
         <div className='d-flex flex-wrap'>
+        <div className='my-1 w-25'>
+            <input type="text" className="input-registro" placeholder="idEmpresa" id="idEmpresa" aria-describedby="idEmpresa" value={`${datos._id}`}  {...register("idEmpresa", {required: true})}readOnly/> 
+            {errors.idEmpresa?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
+          </div> 
           <div className='my-1 w-25'>
             <input type="text" className="input-registro" placeholder="empresa" id="empresa" aria-describedby="empresa" value={`${datos.nombre}`}  {...register("empresa", {required: true})}readOnly/> 
             {errors.empresa?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
@@ -142,9 +151,14 @@ function AgregarTrabajo() {
             {errors.observaciones?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}         
           </div>
           <div className='my-1 w-25'>
-            <input type="text" className="input-registro" name="reparacion" id="reparacion" placeholder="Trabajo realizado" {...register("reparacion", {required: true})}/> 
+            <input type="text" className="input-registro" name="trabajoRealizado" id="trabajoRealizado" placeholder="Trabajo realizado" {...register("trabajoRealizado", {required: true})}/> 
+            {errors.trabajoRealizado?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}         
+          </div>
+          <div className='my-1 w-25'>
+            <input type="text" className="input-registro" name="costo" id="costo" placeholder="Costo de la reparación" {...register("costo", {required: true})}/> 
             {errors.reparacion?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}         
           </div>
+
         </div>
       </div>
     <div className='my-1 w-25'>
