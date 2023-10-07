@@ -1,0 +1,29 @@
+.card-buscador-taller{
+  padding: 10px 0;
+  border-radius: 5px;
+  margin: 5px 0;
+  background-color: rgb(85, 80, 80, 0.2);
+  box-shadow: 2px 2px 3px -1px var(--gris);
+}
+.card-talleres-texto{
+  font-weight: 600;
+}
+.card-buscador-taller img{
+  width: 50%;
+  height: auto;
+}
+@media (max-width:1022px){
+  .card-buscador-taller{
+    margin: 5px;
+  }
+  .card-buscador-taller h6{
+    font-size: 12px;
+  }
+  .card-talleres-texto{
+    font-size: 18px;
+  }
+  .card-buscador-taller img{
+    width: 85%;
+    height: auto;
+  }
+}

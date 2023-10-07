@@ -15,9 +15,6 @@
   color: var(--azul-oscuro);
   font-weight: 600;
 }
-@media (min-width:573px) and (max-width:1022px){
-
-}
 @media (max-width:572px){
   .card-servicios{
     padding: 15px 10px 0px;

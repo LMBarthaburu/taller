@@ -26,18 +26,16 @@
 }
 .buscador-boton{
   border: none;
-  border-radius: 5px;
   padding: 10px 25px;
   color: var(--blanco);
   background-color: var(--azul);
-  margin-top: 15px;
   font-weight: bold;
   align-self: center;
 }
 .buscador-boton:hover{
   background-color: var(--azul-oscuro);
 }
-@media (max-width:572px){
+@media (max-width:1022px){
   .buscador input{
     width: 90%;
   }

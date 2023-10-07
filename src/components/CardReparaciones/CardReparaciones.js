@@ -49,7 +49,21 @@ function CardReparaciones({cliente,telefono,dni,fecha,serie,marca,detalle,observ
       <div id={`flush-collapse${numero}`} className="accordion-collapse collapse" data-bs-parent="#accordion">
         <div className="accordion-body">
           <input type="text" value={id} readOnly="readonly" className='d-none' {...register('_id')}/>
-          <p className='m-0'>Estado: {estado}</p>
+          {
+            editar?
+            <div>
+              <label>Estado: </label>
+              <select placeholder="estado" id="estado" aria-describedby="Estado de la reparación" {...register("estado", {required: true})}> 
+                <option value="A Reparar">A Reprar</option>
+                <option value="Garantia">Garantía</option>
+                <option value="En revisión">En revisión</option>
+                <option value="Reparada">Reparada</option>
+              </select>
+            </div>
+            :
+            <p className='m-0'>Estado: {estado}</p>
+
+          }
           <p className='m-0'>Telefono: {telefono}</p>
           <p className='m-0'>DNI/CUIT: {dni}</p>
           <p className='m-0'>Marca, modelo: {marca}</p>

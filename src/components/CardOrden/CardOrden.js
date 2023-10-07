@@ -47,7 +47,7 @@ function CardOrden({nombre, telefono, cuit, modelo, serie, fecha, detalle, obser
           <h6 className='buscador-card-categoria'>ID empresa: <span className='fw-normal'>{idEmpresa}</span></h6>
         </div>
       </div>
-      <button onClick={imprimirSegmento} className='boton editar'>Imprimir</button>
+      <button onClick={imprimirSegmento} className='boton editar'><span className=' boton-texto'>Imprimir</span></button>
     </div>
   )
 }

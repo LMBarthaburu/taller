@@ -30,7 +30,6 @@
 .hero-boton{
   padding: 10px 15px;
   border: none;
-  border-radius: 5px;
   background-color: var(--azul);
   color: var(--blanco);
   font-size: 18px;
