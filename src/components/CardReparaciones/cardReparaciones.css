@@ -1,9 +1,25 @@
+.accordion-button{
+  background-color: var(--azul);
+}
+.accordion-button:not(.collapsed){
+  background-color: var(--azul-oscuro);
+ color: var(--blanco);
+}
+.accordion-button:focus{
+  box-shadow: none;
+}
+.accordion-header h5{
+  color: var(--blanco);
+}
 .boton-reparacion-editar{
   border: none;
   width: 100vh;
   border-bottom: 1px solid var(--azul);
   font-weight: bold;
   outline: none;
+}
+.reparacion-input{
+  width: 100vh;
 }
 .reparacion-input:focus-visible{
   outline: none;

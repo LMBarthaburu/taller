@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './dataEmpresa.css'
 import {useForm} from 'react-hook-form'
+import {Rubros} from '../../assest/db/rubros'
+
 
 function DataEmpresa() {
 const urlBE = process.env.REACT_APP_URL_BE
@@ -63,7 +65,7 @@ const urlBE = process.env.REACT_APP_URL_BE
 
   return (
     <div className='container'>
-        <div className='container d-flex flex-column'>
+        <div className='d-flex flex-column'>
           <h2>Datos de la empresa</h2>
           <p className='m-0'>ID de sistema</p>
           <input type="text" value={datos._id} readOnly="readonly" className='input-readonly fs-6' {...register('_id')}/>
@@ -119,7 +121,11 @@ const urlBE = process.env.REACT_APP_URL_BE
           <p className='m-0'>Rubro:</p>
           {
             editar?
-              <input type="text"  className='input-edit' {...register('rubro')} />
+              <select id="rubro" name='rubro' className='input-edit' {...register("rubro")}>
+                {
+                  Rubros.map(item=><option value={item.rubro}>{item.rubro}</option>)
+                }
+              </select>
               :
               <input type="text" value={datos.rubro} readOnly="readonly"  className='input-readonly'/>
           }

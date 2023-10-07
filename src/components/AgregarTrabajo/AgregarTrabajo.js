@@ -4,7 +4,7 @@ import { useForm} from 'react-hook-form'
 
 
 function AgregarTrabajo() {
-  const { register , handleSubmit , formState: {errors}, setValue } = useForm()
+  const { register , handleSubmit , setValue } = useForm()
   const urlBE = process.env.REACT_APP_URL_BE
   const [datos, setDatos] = useState([])
   const [numeroRep, setNumero] = useState()
@@ -79,93 +79,41 @@ function AgregarTrabajo() {
     <h2 className="text-center py-3">Agregar Nueva Reparación</h2>
       <div>
         <div className='d-flex flex-wrap'>
-          <div className="my-1 w-25">
-            <input type="number" className="input-registro" id="numero" aria-describedby="numero" placeholder="Numero de reparación" {...register("numero" , {required: true})} maxLength='25' value={`${numeroRep}`} readOnly/>
-            {errors.numero?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
-          </div>
-          <div className="my-1 w-25">
-            <select type="text" className="input-registro" placeholder="estado" id="estado" aria-describedby="Estado de la reparación" {...register("estado", {required: true})}> 
-            {errors.estado?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
+            <input type="number" className="input-trabajo" id="numero" aria-describedby="numero" placeholder="Numero de reparación" {...register("numero")} maxLength='25' value={`${numeroRep}`} readOnly/>
+            <select type="text" className="input-trabajo" placeholder="estado" id="estado" aria-describedby="Estado de la reparación" {...register("estado")}> 
               <option value="A Reparar">A Reprar</option>
               <option value="Garantia">Garantía</option>
             </select>
-          </div> 
         </div>
         <div className='d-flex flex-wrap'>
-        <div className='my-1 w-25'>
-            <input type="text" className="input-registro" placeholder="idEmpresa" id="idEmpresa" aria-describedby="idEmpresa" value={`${datos._id}`}  {...register("idEmpresa", {required: true})}readOnly/> 
-            {errors.idEmpresa?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
-          </div> 
-          <div className='my-1 w-25'>
-            <input type="text" className="input-registro" placeholder="empresa" id="empresa" aria-describedby="empresa" value={`${datos.nombre}`}  {...register("empresa", {required: true})}readOnly/> 
-            {errors.empresa?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
-          </div> 
-          <div className='my-1 w-25'>
-            <input type="number" className="input-registro" name="contacto" id="contacto" placeholder="contacto" value={`${datos.telefono}`}  {...register("contacto", {required: true})}readOnly/>
-            {errors.contacto?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
-          </div>     
-          <div className='my-1 w-25'>
-            <input type="text" className="input-registro" id="direccion" placeholder="direccion" value={`${datos.direccion}`}  {...register("direccion", {required: true})}readOnly/>
-            {errors.direccion?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
-          </div>          
-          <div className='my-1 w-25'>
-            <input type="text" className="input-registro" id="localidad" placeholder="Localidad" value={`${datos.localidad}`}  {...register("localidad", {required: true})}readOnly/>
-            {errors.localidad?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}
-          </div>
-          <div className='my-1 w-25'>
-            <input type="text" className="input-registro" id="provincia" placeholder="Provincia" value={`${datos.provincia}`}  {...register("provincia", {required: true})}readOnly/>
-            {errors.provincia?.type === 'required' &&<span className='mensaje-error'>Este campo es obligatorio </span>}
-          </div>        
+            <input type="text" className="input-trabajo" placeholder="idEmpresa" id="idEmpresa" aria-describedby="idEmpresa" value={`${datos._id}`}  {...register("idEmpresa")}readOnly/> 
+            <input type="text" className="input-trabajo" placeholder="empresa" id="empresa" aria-describedby="empresa" value={`${datos.nombre}`}  {...register("empresa")}readOnly/> 
+            <input type="number" className="input-trabajo" name="contacto" id="contacto" placeholder="contacto" value={`${datos.telefono}`}  {...register("contacto")}readOnly/>
+            <input type="text" className="input-trabajo" id="direccion" placeholder="direccion" value={`${datos.direccion}`}  {...register("direccion")}readOnly/>
+            <input type="text" className="input-trabajo" id="localidad" placeholder="Localidad" value={`${datos.localidad}`}  {...register("localidad")}readOnly/>
+            <input type="text" className="input-trabajo" id="provincia" placeholder="Provincia" value={`${datos.provincia}`}  {...register("provincia")}readOnly/>
         </div>
         <div className='d-flex flex-wrap'>
-          <div className='my-1 w-25'>
-              <input type="text" className="input-registro" name="nombre" id="nombre" placeholder="Nombre de cliente" {...register("nombre", {required: true})}/> 
-              {errors.nombre?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}           
-          </div>
-          <div className='my-1 w-25'>
-            <input type="number" className="input-registro" name="movil" id="movil" placeholder="Telefono de contacto" {...register("telefono", {required: true})}/>
-            {errors.telefono?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}  
-          </div>
-          <div className='my-1 w-25'>
-            <input type="number" className="input-registro" name="cuit" id="cuit" placeholder="DNI o CUIT del cliente" {...register("cuit", {required: true})}/> 
-            {errors.cuit?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}         
-          </div>
-          <div className='my-1 w-25'>
-            <input type="date" className="input-registro" name="fecha" id="fecha" placeholder="Fecha de recepción" {...register("fecha", {required: true})}/> 
-            {errors.fecha?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}         
-          </div>
-          <div className='my-1 w-25'>
-            <input type="text" className="input-registro" name="serie" id="serie" placeholder="Numero de serie o identificación" {...register("serie", {required: true})}/> 
-            {errors.serie?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}         
-          </div>
-          <div className='my-1 w-25'>
-            <input type="text" className="input-registro" name="modelo" id="modelo" placeholder="Marca y modelo del Producto" {...register("modelo", {required: true})}/> 
-            {errors.modelo?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}         
-          </div>
-          <div className='my-1 w-25'>
-            <input type="text" className="input-registro" name="detalle" id="detalle" placeholder="Detalle del problema" {...register("detalle", {required: true})}/> 
-            {errors.detalle?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}         
-          </div>
-          <div className='my-1 w-25'>
-            <input type="text" className="input-registro" name="observaciones" id="observaciones" placeholder="Observaciones" {...register("observaciones", {required: true})}/> 
-            {errors.observaciones?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}         
-          </div>
-          <div className='my-1 w-25'>
-            <input type="text" className="input-registro" name="trabajoRealizado" id="trabajoRealizado" placeholder="Trabajo realizado" {...register("trabajoRealizado", {required: true})}/> 
-            {errors.trabajoRealizado?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}         
-          </div>
-          <div className='my-1 w-25'>
-            <input type="text" className="input-registro" name="costo" id="costo" placeholder="Costo de la reparación" {...register("costo", {required: true})}/> 
-            {errors.reparacion?.type === 'required' && <span className='mensaje-error'>Este campo es obligatorio </span>}         
-          </div>
-
+              <input type="text" className="input-trabajo" name="nombre" id="nombre" placeholder="Nombre de cliente" {...register("nombre")} required/>           
+            <input type="number" className="input-trabajo" name="movil" id="movil" placeholder="Telefono de contacto" {...register("telefono")}required/>
+            <input type="number" className="input-trabajo" name="cuit" id="cuit" placeholder="DNI o CUIT del cliente" {...register("cuit")}required/> 
+            <input type="date" className="input-trabajo" name="fecha" id="fecha" placeholder="Fecha de recepción" {...register("fecha")}required/> 
+            <input type="text" className="input-trabajo" name="serie" id="serie" placeholder="Numero de serie o identificación" {...register("serie")}required/> 
+            <input type="text" className="input-trabajo" name="modelo" id="modelo" placeholder="Marca y modelo del Producto" {...register("modelo")}required/> 
+            <input type="text" className="input-trabajo" name="detalle" id="detalle" placeholder="Detalle del problema" {...register("detalle")}required/> 
+            <input type="text" className="input-trabajo" name="observaciones" id="observaciones" placeholder="Observaciones" {...register("observaciones")}required/> 
+            <input type="text" className="input-trabajo" name="trabajoRealizado" id="trabajoRealizado" placeholder="Trabajo realizado" {...register("trabajoRealizado")}required/> 
+            <input type="text" className="input-trabajo" name="costo" id="costo" placeholder="Costo de la reparación" {...register("costo")}required/> 
         </div>
       </div>
-    <div className='my-1 w-25'>
+    <div>
       {
-        spinner? <div className="spinner-border" role="status">
+        spinner? 
+        <div className="spinner-border" role="status">
         <span className="visually-hidden">Loading...</span>
-      </div>:<button type="submit" className="buscador-boton">Dar de alta</button>                
+        </div>
+        :
+        <button type="submit" className="buscador-boton">Dar de alta</button>                
       }        
     </div>           
   </form>   )

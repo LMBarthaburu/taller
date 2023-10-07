@@ -5,4 +5,7 @@
   .card-ordenes{
     padding: 0 10px;
   }
+  .card-ordenes h5, h6{
+    font-size: 14px;
+  }
 }

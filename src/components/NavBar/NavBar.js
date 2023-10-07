@@ -42,8 +42,8 @@ function NavBar() {
               <li className="nav-item ">
                 {
                   logeado? 
-                    <div className="dropdown d-flex align-items-center flex-column">
-                      <button className="nav-link nav-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div className="dropdown position-static">
+                      <button className="nav-link nav-btn dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                       {usuario?.user.nombre}
                       </button>
                       <ul className='dropdown-menu text-center' aria-labelledby="dropdownMenuButton1">

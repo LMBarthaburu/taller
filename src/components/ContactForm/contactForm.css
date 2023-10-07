@@ -1,8 +1,8 @@
 .contact-bg{
   width: 100%;
   height: 100vh;
-  background-image: url('../../assest/images/fondo-contacto.png');
   padding: 60px 0;
+  background-color: var(--azul);
 }
 .contact-box{
   width: 100%;

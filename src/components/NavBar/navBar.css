@@ -24,7 +24,8 @@
 .dropdown-menu{
   background-color: var(--blanco);
   border: none;
-  width: 100%;
   border-radius: 0;
   padding: 0;
+  right: 0;
+  left: auto;
 }

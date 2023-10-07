@@ -45,8 +45,8 @@ function LogInForm() {
         <div className="formulario-contenedor-login">
           <form onSubmit={handleSubmit(onSubmit)} className= "form-className formulario-estilo d-flex flex-column">
               <h1 className="text-center fs-3 py-4 fw-bold">Inicio de sesión:</h1>                    
-              <input type="text" className="input-style my-3" name="email" id="email" placeholder="Email" {...register("email" , {required: true})} required/>   
-              <input type="password" className="input-style my-3" name="password" id="password" placeholder="Contraseña" {...register("contrasena")} required/>           
+              <input type="text" className="input-style" name="email" id="email" placeholder="Email" {...register("email" , {required: true})} required/>   
+              <input type="password" className="input-style" name="password" id="password" placeholder="Contraseña" {...register("contrasena")} required/>           
               <button type="submit" className="buscador-boton my-5 py-2">Ingresar</button>
               <p className='text-center'>No tenes cuenta? <a  href='/register' className='link-login'>Registrese Aca</a></p>
           </form>
