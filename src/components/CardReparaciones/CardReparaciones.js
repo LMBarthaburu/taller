@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import './cardReparaciones.css'
 
-function CardReparaciones({cliente,telefono,dni,fecha,serie,marca,detalle,observaciones, trabajoRealizado, numero, estado, costo, id }) {  
+function CardReparaciones({cliente,telefono,dni,fecha,serie,marca,detalle,observaciones, trabajoRealizado, numero, estado, costo, id, fechaEntrega }) {  
   const urlBE = process.env.REACT_APP_URL_BE
   const [editar, setEditar] = useState(false)
   const {register, handleSubmit, setValue} = useForm()
@@ -46,14 +46,14 @@ function CardReparaciones({cliente,telefono,dni,fecha,serie,marca,detalle,observ
           <h5>#{numero} - {cliente} - {fecha} - {estado}</h5>
         </button>
       </h2>
-      <div id={`flush-collapse${numero}`} className="accordion-collapse collapse" data-bs-parent="#accordion">
+      <div id={`flush-collapse${numero}`} className="accordion-collapse collapse accordion-bg" data-bs-parent="#accordion">
         <div className="accordion-body">
           <input type="text" value={id} readOnly="readonly" className='d-none' {...register('_id')}/>
           {
             editar?
             <div>
-              <label>Estado: </label>
-              <select placeholder="estado" id="estado" aria-describedby="Estado de la reparación" {...register("estado", {required: true})}> 
+              <label className='fs-5 fw-bold'>Estado: </label>
+              <select placeholder="estado" id="estado" aria-describedby="Estado de la reparación" defaultValue={estado}{...register("estado")}> 
                 <option value="A Reparar">A Reprar</option>
                 <option value="Garantia">Garantía</option>
                 <option value="En revisión">En revisión</option>
@@ -61,37 +61,35 @@ function CardReparaciones({cliente,telefono,dni,fecha,serie,marca,detalle,observ
               </select>
             </div>
             :
-            <p className='m-0'>Estado: {estado}</p>
-
+            <h5 className='m-0'> <span className='fw-bold'>Estado: </span>{estado}</h5>
           }
-          <p className='m-0'>Telefono: {telefono}</p>
-          <p className='m-0'>DNI/CUIT: {dni}</p>
-          <p className='m-0'>Marca, modelo: {marca}</p>
-          <p className='m-0'>Numero de identificación: {serie}</p>
-          <p className='m-0'>Areparar: {detalle}</p>
-          <p className='m-0'>Observaciones: {observaciones}</p>
+          <h5 className='m-0'> <span className='fw-bold'>Telefono: </span>{telefono}</h5>
+          <h5 className='m-0'> <span className='fw-bold'>DNI/CUIT: </span>{dni}</h5>
+          <h5 className='m-0'> <span className='fw-bold'>Marca, modelo: </span>{marca}</h5>
+          <h5 className='m-0'> <span className='fw-bold'>Numero de identificación: </span>{serie}</h5>
+          <h5 className='m-0'> <span className='fw-bold'>Areparar: </span>{detalle}</h5>
+          <h5 className='m-0'> <span className='fw-bold'>Observaciones: </span>{observaciones}</h5>
           {
             editar?
               <div>
-                <div className='d-flex align-items-center'>
-                  <label className='color-red'>Trabajo realizado:</label>
-                  <input type="text" {...register('trabajoRealizado')} className='boton-reparacion-editar ms-2' />
+                <div className='d-md-flex align-items-center'>
+                  <label className='color-red fs-5 fw-bold'>Trabajo realizado:</label>
+                  <input type="text" {...register('trabajoRealizado')} defaultValue={trabajoRealizado} className='reparacion-input ms-2 fs-5 fw-normal' />
                 </div>
-                <div className='d-flex align-items-center'>
-                  <label className='color-red'>Costo de la reparación:</label>
-                  <input type="number" {...register('costo')}  className='boton-reparacion-editar ms-2'/>
+                <div className='d-md-flex align-items-center'>
+                  <label className='color-red fs-5 fw-bold'>Fevha de entrega:</label>
+                  <input type="date" {...register('fechaEntrega')} defaultValue={fechaEntrega} className='reparacion-input ms-2 fs-5 fw-normal'/>
+                </div>
+                <div className='d-md-flex align-items-center'>
+                  <label className='color-red fs-5 fw-bold'>Costo de la reparación:$</label>
+                  <input type="number" {...register('costo')} defaultValue={costo} className='reparacion-input ms-2 fs-5 fw-normal'/>
                 </div>
               </div>
               :
               <div>
-                <div className='d-flex align-items-center'>
-                  <label>Trabajo realizado:</label>
-                  <input type="text"  value={trabajoRealizado}  className='border-0 ms-2 reparacion-input' readOnly/>
-                </div>
-                <div className='d-flex align-items-center'>
-                  <label>Costo de la reparación:</label>
-                  <input type="number"  value={costo}  className='border-0 ms-2 reparacion-input' readOnly/>
-                </div>
+                <h5 className='m-0'> <span className='fw-bold'>Trabajo realizado: </span>{trabajoRealizado}</h5>
+                <h5 className='m-0'> <span className='fw-bold'>Fecha de entrega: </span>{fechaEntrega}</h5>
+                <h5 className='m-0'> <span className='fw-bold'>Costo de la reparación: </span>${costo}</h5>
               </div>
           }     
 

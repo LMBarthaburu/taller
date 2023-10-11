@@ -66,69 +66,74 @@ const urlBE = process.env.REACT_APP_URL_BE
   return (
     <div className='container'>
         <div className='d-flex flex-column'>
-          <h2>Datos de la empresa</h2>
-          <p className='m-0'>ID de sistema</p>
-          <input type="text" value={datos._id} readOnly="readonly" className='input-readonly fs-6' {...register('_id')}/>
-          <p className='m-0'>Nombre:</p>
-          {
-            editar?
-              <input type="text"  className='input-edit'{...register('nombre')}/>
-              :
-              <input type="text" value={datos.nombre} readOnly="readonly"  className='input-readonly'/>
-          }
-          <p className='m-0'>CUIT/DNI:</p>
-          {
-            editar?
-              <input type="number" className='input-edit'  {...register('cuit')} />
-              :
-              <input type="text" value={datos.cuit} readOnly="readonly"  className='input-readonly'/>
-          }     
-          <p className='m-0'>Telefono:</p>
-          {
-            editar?
-              <input type="number"  className='input-edit' {...register('telefono')} />
-              :
-              <input type="text" value={datos.telefono} readOnly="readonly"  className='input-readonly'/>
-          }
-          <p className='m-0'>Email:</p>
-          {
-            editar?
-              <input type="email"  className='input-edit' {...register('email')} />
-              :
-              <input type="text" value={datos.email} readOnly="readonly"  className='input-readonly'/>
-          }   
-          <p className='m-0'>Dirección:</p>
-          {
-            editar?
-              <input type="text"   className='input-edit' {...register('direccion')}/>
-              :
-              <input type="text" value={datos.direccion} readOnly="readonly"  className='input-readonly'/>
-          }     
-          <p className='m-0'>Localidad:</p>
-          {
-            editar?
-              <input type="text"  className='input-edit' {...register('localidad')}/>
-              :
-              <input type="text" value={datos.localidad} readOnly="readonly"  className='input-readonly'/>
-          }         
-          <p className='m-0'>Provincia:</p>
-          {
-            editar?
-              <input type="text"  className='input-edit'  {...register('provincia')}/>
-              :
-              <input type="text" value={datos.provincia} readOnly="readonly"  className='input-readonly'/>
-          }
-          <p className='m-0'>Rubro:</p>
-          {
-            editar?
-              <select id="rubro" name='rubro' className='input-edit' {...register("rubro")}>
+          <h3>Datos de la empresa</h3>
+          <div className='d-md-flex justify-content-evenly my-3'>
+            <div>
                 {
-                  Rubros.map(item=><option value={item.rubro}>{item.rubro}</option>)
+                  editar?
+                    <input type="text"  className='input-edit fs-1'{...register('nombre')}/>
+                    :
+                    <input type="text" value={datos.nombre} readOnly="readonly"  className='input-readonly fs-1'/>
                 }
-              </select>
-              :
-              <input type="text" value={datos.rubro} readOnly="readonly"  className='input-readonly'/>
-          }
+                <p className='m-0'>ID de sistema</p>
+                <input type="text" value={datos._id} readOnly="readonly" className='input-readonly fs-6' {...register('_id')}/>
+                <p className='m-0'>CUIT/DNI:</p>
+                {
+                  editar?
+                    <input type="number" className='input-edit'  {...register('cuit')} />
+                    :
+                    <input type="text" value={datos.cuit} readOnly="readonly"  className='input-readonly'/>
+                }     
+                <p className='m-0'>Telefono:</p>
+                {
+                  editar?
+                    <input type="number"  className='input-edit' {...register('telefono')} />
+                    :
+                    <input type="text" value={datos.telefono} readOnly="readonly"  className='input-readonly'/>
+                }
+                <p className='m-0'>Email:</p>
+                {
+                  editar?
+                    <input type="email"  className='input-edit' {...register('email')} />
+                    :
+                    <input type="text" value={datos.email} readOnly="readonly"  className='input-readonly'/>
+                }   
+              </div>
+              <div>
+                <p className='m-0'>Dirección:</p>
+                {
+                  editar?
+                    <input type="text"   className='input-edit' {...register('direccion')}/>
+                    :
+                    <input type="text" value={datos.direccion} readOnly="readonly"  className='input-readonly'/>
+                }     
+                <p className='m-0'>Localidad:</p>
+                {
+                  editar?
+                    <input type="text"  className='input-edit' {...register('localidad')}/>
+                    :
+                    <input type="text" value={datos.localidad} readOnly="readonly"  className='input-readonly'/>
+                }         
+                <p className='m-0'>Provincia:</p>
+                {
+                  editar?
+                    <input type="text"  className='input-edit'  {...register('provincia')}/>
+                    :
+                    <input type="text" value={datos.provincia} readOnly="readonly"  className='input-readonly'/>
+                }
+                <p className='m-0'>Rubro:</p>
+                {
+                  editar?
+                    <select id="rubro" name='rubro' className='input-edit' defaultValue={datos.rubro} {...register("rubro")}>
+                      {
+                        Rubros.map(item=><option value={item.rubro}>{item.rubro}</option>)
+                      }
+                    </select>
+                    :
+                    <input type="text" value={datos.rubro} readOnly="readonly"  className='input-readonly'/>
+                }
+              </div>
+          </div>
         </div>
         <div className='w-100 text-center mt-1'>
           {

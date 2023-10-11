@@ -23,7 +23,7 @@ function MisReparaciones() {
       }
       return 0;
     });
-    getData(reparacionesOrdenadas)
+    getData(reparacionesOrdenadas.reverse())
     setDataFull(reparacionesFiltradas)
   }
 
@@ -70,7 +70,7 @@ const clean =(event)=>{
         <input type="text" placeholder='Ingrese Nombre, Numero de reparacion o DNI/CUIT' id='filtro' className='filtro-input'/>
         <div className='py-2'>
           <label>Filtrar por estado de reparación: </label>
-          <select placeholder="estado" id="estado-opciones" aria-describedby="Estado de la reparación">
+          <select className='buscador-taller-select' placeholder="estado" id="estado-opciones" aria-describedby="Estado de la reparación">
             <option value="todas">Ver todas las reparacion</option> 
             <option value="A Reparar">A Reprar</option>
             <option value="Garantia">Garantía</option>
@@ -78,14 +78,14 @@ const clean =(event)=>{
             <option value="Reparada">Reparada</option>
           </select>
         </div>
-        <button onClick={filter} className='boton editar boton-texto'>Filtrar</button>
-        <button onClick={clean} className='boton eliminar ms-2 boton-texto'>Limpiar filtros</button>
+        <button onClick={filter} className='boton editar'><span className='boton-texto'>Filtrar</span></button>
+        <button onClick={clean} className='boton eliminar ms-2'><span className='boton-texto'>Limpiar filtros</span> </button>
       </form>
       {
-        data.length===0? <h4>No tienes trabajos segun el criterio buscado</h4>:
+        data.length===0? <h4 className='buscador-taller-error my-3'>No tienes trabajos segun el criterio buscado</h4>:
         <div className="accordion accordion-flush mb-5" id="accordion">
             {
-              data.map(item=><CardReparaciones key={item.numero} cliente={item.nombre} telefono={item.telefono} dni={item.cuit} fecha={item.fecha} serie={item.serie}marca={item.modelo} detalle={item.detalle} observaciones={item.observaciones} trabajoRealizado={item.trabajoRealizado} numero={item.numero} estado={item.estado} costo={item.costo} id={item._id}/>)
+              data.map(item=><CardReparaciones key={item.numero} cliente={item.nombre} telefono={item.telefono} dni={item.cuit} fecha={item.fecha} serie={item.serie}marca={item.modelo} detalle={item.detalle} observaciones={item.observaciones} trabajoRealizado={item.trabajoRealizado} numero={item.numero} estado={item.estado} costo={item.costo} id={item._id} fechaEntrega={item.fechaEntrega}/>)
             }
         </div>
       }
