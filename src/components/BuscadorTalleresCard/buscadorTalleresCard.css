@@ -2,11 +2,12 @@
   padding: 10px 0;
   border-radius: 5px;
   margin: 5px 0;
-  background-color: rgb(85, 80, 80, 0.2);
+  background-color: rgb(85, 80, 80, 0.1);
   box-shadow: 2px 2px 3px -1px var(--gris);
 }
 .card-talleres-texto{
   font-weight: 600;
+  color: var(--azul);
 }
 .card-buscador-taller img{
   width: 50%;

@@ -1,14 +1,17 @@
 export const Rubros=[
   {
-    rubro : 'jardinería'
+    rubro : 'Maquinária de jardinería'
   },
   {
-    rubro:'electrodomésticos'
+    rubro:'Electrodomésticos'
   },
   {
-    rubro:'refrigeración'
+    rubro:'Refrigeración'
   },
   {
-    rubro:'automotores'
+    rubro:'Automotores'
+  },
+  {
+    rubro:'Herramientas'
   }
 ]

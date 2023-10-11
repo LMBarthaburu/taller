@@ -44,7 +44,7 @@ function Buscador() {
       <div className='d-none' id='buscador-texto'>
         { buscado.length>0?
           buscado.map(item=>
-          <CardOrden key={item.serie} nombre={item.nombre} telefono={item.telefono} cuit={item.cuit} modelo={item.modelo} fecha={item.fecha} serie={item.serie} detalle={item.detalle} observaciones={item.observaciones} empresa={item.empresa} contacto={item.contacto} localidad={item.localidad} direccion={item.direccion} provincia={item.provincia} trabajoRealizado={item.trabajoRealizado} estado={item.estado} numero={item.numero} costo={item.costo} idEmpresa={item.idEmpresa}/>
+          <CardOrden key={item.serie} nombre={item.nombre} telefono={item.telefono} cuit={item.cuit} modelo={item.modelo} fecha={item.fecha} serie={item.serie} detalle={item.detalle} observaciones={item.observaciones} empresa={item.empresa} contacto={item.contacto} localidad={item.localidad} direccion={item.direccion} provincia={item.provincia} trabajoRealizado={item.trabajoRealizado} estado={item.estado} numero={item.numero} costo={item.costo} idEmpresa={item.idEmpresa} fechaEntrega={item.fechaEntrega}/>
           ):<h4 className='text-center  buscador-taller-error'>No se encontraron resultados</h4>
         }
       </div>
