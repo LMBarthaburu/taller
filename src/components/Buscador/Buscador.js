@@ -10,7 +10,7 @@ function Buscador() {
   
 
   const getReparaciones= async ()=>{
-    const res = await fetch(`${urlBE}reparacion`)
+    const res = await fetch(`${urlBE}reparacion` )
     const json = await res.json()
     getData(json.reparacion)
   }
@@ -19,7 +19,7 @@ function Buscador() {
     getReparaciones()
   },[])// eslint-disable-line react-hooks/exhaustive-deps
 
-  const buscar =(event)=>{
+  const buscar = async(event)=>{
     event.preventDefault()
     const valor = buscadorRef.current.value
     const valorBuscado = data.filter(item =>
@@ -32,6 +32,9 @@ function Buscador() {
     }else{
       getBuscado(valorBuscado)
     }
+    // const res = await fetch(`${urlBE}reparacion?timestamp=${Date.now()}`);
+    // const json = await res.json();
+    // getData(json.reparacion);
   }
 
   return (

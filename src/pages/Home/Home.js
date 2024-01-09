@@ -6,6 +6,7 @@ import Hero from '../../components/Hero/Hero'
 import NavBar from '../../components/NavBar/NavBar'
 import Servicios from '../../components/Servicios/Servicios'
 import BuscadorTalleres from '../../components/BuscardorTalleres/BuscadorTalleres'
+import BotonTop from '../../components/BotonTop/BotonTop'
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
       <Servicios/>
       <BuscadorTalleres/>
       <ContactForm/>
+      <BotonTop/>
       <Footer/>
     </>
   )

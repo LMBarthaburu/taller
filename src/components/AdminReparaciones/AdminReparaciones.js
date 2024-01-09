@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import CardReparaciones from '../CardReparaciones/CardReparaciones'
-import './misReparaciones.css'
 
-function MisReparaciones() {
+function AdminReparaciones() {
   const urlBE = process.env.REACT_APP_URL_BE
   const [data, getData]=useState([])
   const [dataFull, setDataFull] = useState([])
 
   const getReparaciones= async ()=>{
-    const miDato = JSON.parse(localStorage.getItem('Usuario'))
-    const data = miDato.user
     const res = await fetch(`${urlBE}reparacion`)
     const json = await res.json()
     const reparaciones = json.reparacion
-    const reparacionesFiltradas = (reparaciones.filter(item=>item.idEmpresa===data._id))
-    const reparacionesOrdenadas = reparacionesFiltradas.sort(function (a, b) {
+    const reparacionesOrdenadas = reparaciones.sort(function (a, b) {
       if (a.numero > b.numero) {
         return 1;
       }
@@ -24,7 +20,7 @@ function MisReparaciones() {
       return 0;
     });
     getData(reparacionesOrdenadas.reverse())
-    setDataFull(reparacionesFiltradas)
+    setDataFull(reparaciones)
   }
 
   useEffect(()=>{
@@ -35,17 +31,20 @@ const filter = async (event) => {
   event.preventDefault();
   const criterio = document.getElementById('filtro').value;
   const estado = document.getElementById('estado-opciones').value;
-
+  console.log(criterio)
   let reparacionesFiltradas = dataFull;
+  console.log(reparacionesFiltradas)
 
   if (criterio !== '') {
     reparacionesFiltradas = reparacionesFiltradas.filter(item => {
+      const idempresa = item.idEmpresa;
       const numeroReparacion = item.numero.toString();
       const dniReparacion = item.cuit.toString();
       const nombreReparacion = item.nombre.toLowerCase();
+      const empresaReparacion = item.empresa.toLowerCase();
       const criterioLowerCase = criterio.toLowerCase();
 
-      return numeroReparacion === criterio || nombreReparacion.includes(criterioLowerCase) || dniReparacion===criterio;
+      return numeroReparacion === criterio || nombreReparacion.includes(criterioLowerCase) || dniReparacion===criterio || idempresa===criterioLowerCase || empresaReparacion.includes(criterioLowerCase)
     });
   }
 
@@ -66,7 +65,7 @@ const clean =(event)=>{
 
   return (
     <div className='container mt-3'>
-      <h3>Lista de trabajos realizados/pendientes:</h3>
+      <h3>Lista de reparaciones:</h3>
       <form className='mb-2'>
         <input type="text" placeholder='Ingrese Nombre, Numero de reparacion o DNI/CUIT' id='filtro' className='filtro-input'/>
         <div className='py-2'>
@@ -94,4 +93,4 @@ const clean =(event)=>{
   )
 }
 
-export default MisReparaciones
+export default AdminReparaciones

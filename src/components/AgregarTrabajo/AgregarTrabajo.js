@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect,useState } from 'react'
 import './agregarTrabajo.css'
 import { useForm} from 'react-hook-form'
 import html2pdf from 'html2pdf.js';
@@ -25,22 +25,29 @@ function AgregarTrabajo() {
     }
   }
 
-  const getReparaciones= async ()=>{
-    const res = await fetch(`${urlBE}reparacion`)
-    const json = await res.json()
-    const reparaciones = json.reparacion
-    const reparacionesOrdenadas = reparaciones.sort(function (a, b) {
-      if (a.numero > b.numero) {
-        return 1;
-      }
-      if (a.numero < b.numero) {
-        return -1;
-      }
-      return 0;
-    });
-    const valorNumero = reparacionesOrdenadas.slice(-1).pop()
-    const numeroReparacion = (valorNumero.numero+1)
-    setNumero(numeroReparacion)
+  const getReparaciones = async () => {
+    const res = await fetch(`${urlBE}reparacion`);
+    const json = await res.json();
+    const reparaciones = json.reparacion;
+    let numeroAleatorio = generarNumeroAleatorio();
+    if(reparaciones.length===0){
+      setNumero(numeroAleatorio)
+    }else{
+      reparaciones.forEach((reparacion) => {
+        if (reparacion.numero === numeroAleatorio) {
+          numeroAleatorio = generarNumeroAleatorio()
+        } else {
+          setNumero(numeroAleatorio);
+        }
+      });
+    }
+  };
+  
+  function generarNumeroAleatorio() {
+    const min = 10000000;
+    const max = 99999999;
+    const numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
+    return numeroAleatorio;
   }
   
   useEffect(() => {
@@ -56,11 +63,13 @@ function AgregarTrabajo() {
     setValue("provincia", datos.provincia)
     setValue("idEmpresa", datos._id)
   }, [datos, setValue])
+
   useEffect(()=>{
     setValue("numero", numeroRep)
   },[numeroRep, setValue])
 
   const onSubmit = async(data) => {
+    imprimirSegmento()
     setSpinner(true)
     const resp = await fetch( `${urlBE}reparacion`, {
       method: 'POST',
@@ -69,15 +78,15 @@ function AgregarTrabajo() {
         'content-type': 'application/json'
       }
     })
-    const element = document.getElementById('alta-de-reparacion');
-    html2pdf()
-      .from(element)
-      .save()
     const json = await resp.json()
     alert(json.message)
-    window.location.href='/PerfilUsuario'  
+    window.location.href='/PerfilUsuario'
   }
-  
+
+  const imprimirSegmento = () => {
+    const element = document.getElementById('alta-de-reparacion')
+    html2pdf().from(element).save()
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className= "container my-5 d-flex flex-column">
@@ -119,7 +128,7 @@ function AgregarTrabajo() {
         <span className="visually-hidden">Loading...</span>
         </div>
         :
-        <button type="submit" className="buscador-boton mt-2">Agregar reparación</button>                
+        <button type="submit" className="buscador-boton mt-2" >Agregar reparación</button>                
       }        
     </div>           
   </form>   )

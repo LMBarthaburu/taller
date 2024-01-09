@@ -5,13 +5,18 @@ function NavBar() {
   const [logeado, setlogin] = useState(false)
   const [usuario, setUsuario] = useState({})
 
+
   const login =()=>{
     const usuarios = JSON.parse(localStorage.getItem('Usuario'))
-    if(!usuarios){
+    const usuariosAdmin = JSON.parse(localStorage.getItem('Admin'))
+    if(!usuarios&&!usuariosAdmin){
       return
-    }else{
+    }else if(!usuariosAdmin){
       setUsuario(usuarios)
       setlogin(usuarios)
+    }else{
+      setUsuario(usuariosAdmin)
+      setlogin(usuariosAdmin)
     }
   }
 
@@ -20,14 +25,14 @@ function NavBar() {
   },[])// eslint-disable-line react-hooks/exhaustive-deps
 
   const logout=()=>{
-    localStorage.clear('Usuario')
+    localStorage.clear('Usuario','Admin')
     window.location.href='/'
   }
   return (
     <>
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid d-flex justify-content-between">
-          <a className="navbar-brand" href="/#">MI TALLER</a>
+          <a className="navbar-brand" href="/">MI TALLER</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -44,7 +49,8 @@ function NavBar() {
                   logeado? 
                     <div className="dropdown position-static">
                       <button className="nav-link nav-btn dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                      {usuario?.user.nombre}
+                        {usuario?.user?.nombre}
+                        {usuario?.userAdmin?.nombre}
                       </button>
                       <ul className='dropdown-menu text-center' aria-labelledby="dropdownMenuButton1">
                         <li><a className='nav-link' href="/PerfilUsuario">Perfil</a></li>

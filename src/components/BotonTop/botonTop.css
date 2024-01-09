@@ -1,0 +1,14 @@
+.boton-top{
+  position: fixed;
+  bottom: 8%;
+  right: 3%;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  font-size: 36px;
+}
+.boton-top-logo{
+  fill: var(--negro);
+}

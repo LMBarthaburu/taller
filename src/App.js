@@ -4,6 +4,7 @@ import LogIn from './pages/LogIn/LogIn';
 import PerfilAdmin from './pages/PerfilAdmin/PerfilAdmin';
 import PerfilCliente from './pages/PerfilCliente/PerfilCliente';
 import Register from './pages/Register/Register';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/PerfilUsuario' element={<PerfilCliente/>}/>
         <Route path='/Administracion' element={<PerfilAdmin/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='*' element={<ErrorPage/>}/>
       </Routes>
     </>
   );

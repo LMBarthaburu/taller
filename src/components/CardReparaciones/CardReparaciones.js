@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import './cardReparaciones.css'
 
-function CardReparaciones({cliente,telefono,dni,fecha,serie,marca,detalle,observaciones, trabajoRealizado, numero, estado, costo, id, fechaEntrega }) {  
+function CardReparaciones({cliente,telefono,dni,fecha,serie,marca,detalle,observaciones, trabajoRealizado, numero, estado, costo, id, fechaEntrega, empresa, idEmpresa }) {  
   const urlBE = process.env.REACT_APP_URL_BE
   const [editar, setEditar] = useState(false)
   const {register, handleSubmit, setValue} = useForm()
@@ -49,6 +49,8 @@ function CardReparaciones({cliente,telefono,dni,fecha,serie,marca,detalle,observ
       <div id={`flush-collapse${numero}`} className="accordion-collapse collapse accordion-bg" data-bs-parent="#accordion">
         <div className="accordion-body">
           <input type="text" value={id} readOnly="readonly" className='d-none' {...register('_id')}/>
+          <h6 className='m-0'><span className='fw-bold'>Empresa:</span> {empresa} </h6>
+          <h6 className='m-0'><span className='fw-bold'>ID Empresa:</span> {idEmpresa} </h6>
           {
             editar?
             <div>
@@ -102,7 +104,7 @@ function CardReparaciones({cliente,telefono,dni,fecha,serie,marca,detalle,observ
               <button className='boton eliminar ms-2' onClick={handleSubmit(eliminar)}><p className='boton-texto'>Eliminar reparacion</p></button>
             </div>
             :
-            <button className='boton editar' onClick={setEdit=>(setEditar(true))}><p className='boton-texto'>Editar datos</p></button>
+            <button className='boton editar ms-2' onClick={setEdit=>(setEditar(true))}><p className='boton-texto'>Editar datos</p></button>
           }      
       </div>
     </div>
