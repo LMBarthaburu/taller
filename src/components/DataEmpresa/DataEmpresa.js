@@ -65,9 +65,9 @@ const urlBE = process.env.REACT_APP_URL_BE
 
   return (
     <div className='container'>
-        <div className='d-flex flex-column'>
-          <h3>Datos de la empresa</h3>
-          <div className='d-md-flex justify-content-evenly my-3'>
+        <div className='d-flex flex-column align-items-center'>
+          <img src={datos.logo} alt="Logo empresa" className='w-50 img-logo'/>  
+          <div className='d-lg-flex justify-content-evenly my-3 data-empresa'>
             <div>
                 {
                   editar?
