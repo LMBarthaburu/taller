@@ -16,7 +16,7 @@ function AdminTalleres() {
   }
   useEffect(() => {
     getTalleres()
-  }, [])
+  }, [])// eslint-disable-line react-hooks/exhaustive-deps
 
   const filter = async (event) => {
     event.preventDefault();
