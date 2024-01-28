@@ -49,7 +49,7 @@ function LogInForm() {
       localStorage.setItem("Admin" , jsonStrAdm)
       window.location.href='/administracion' 
       return
-    }else if(respAdmin.ok===false){
+    }else if(respAdmin.ok===false && resp.ok===true){
       const jsonStr = JSON.stringify(json)  
       localStorage.setItem("Usuario" , jsonStr)
       window.location.href='/PerfilUsuario' 
