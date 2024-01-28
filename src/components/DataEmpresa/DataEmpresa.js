@@ -9,7 +9,7 @@ const urlBE = process.env.REACT_APP_URL_BE
   const [datos, setDatos] = useState([])
   const [editar, setEditar] = useState(false)
   const {register, handleSubmit, setValue} = useForm()
-
+  const [password, setpassword] = useState(false)
 
   const getData=async ()=>{
     const miDato = JSON.parse(localStorage.getItem('Usuario'))
@@ -49,16 +49,30 @@ const urlBE = process.env.REACT_APP_URL_BE
     window.location.reload()
   }
 
-  const eliminar = async(data)=>{
-    const del = await fetch(`${urlBE}registro`, {
-      method: 'DELETE',
+  // const eliminar = async(data)=>{
+  //   const del = await fetch(`${urlBE}registro`, {
+  //     method: 'DELETE',
+  //     body: JSON.stringify(data),
+  //     headers:{
+  //       'content-type': 'application/json'
+  //     }
+  //   })
+  //   const json = await del.json()
+  //   localStorage.clear('Usuario')
+  //   alert(json.message)
+  //   window.location.reload()
+  // }
+
+  const changePasword = async (data)=>{
+    const resp = await fetch(`${urlBE}registro/change`, {
+      method: 'PUT',
       body: JSON.stringify(data),
       headers:{
         'content-type': 'application/json'
       }
     })
-    const json = await del.json()
-    localStorage.clear('Usuario')
+    const json = await resp.json()
+    setpassword(false)
     alert(json.message)
     window.location.reload()
   }
@@ -135,16 +149,40 @@ const urlBE = process.env.REACT_APP_URL_BE
               </div>
           </div>
         </div>
+        <div className='w-100 my-2 text-md-center'>
+        {
+          password?
+          <>
+            <input type="text" className='input-edit mx-md-2 ps-md-2 fs-5' placeholder='Contraseña Actual' id='contrasena' name='contrasena'{...register ("contrasena")}/>
+            <input type="text" className='input-edit mx-md-2 ps-md-2 fs-5' placeholder='Nueva contraseña' id='newcontrasena' name='newcontrasena' {...register("newcontrasena")}/>
+            <input type="text" className='input-edit mx-md-2 ps-md-2 fs-5' placeholder='Repetir nueva contraseña' id='repeatcontrasena' name='repeatcontrasena' {...register("repeatcontrasena")}/>
+          </>
+            :
+            null
+          }
+        </div>
         <div className='w-100 text-center mt-1'>
           {
           editar?
             <div>
               <button className='boton guardar me-2' onClick={handleSubmit(cambios)}><p className='boton-texto'>Guardar cambios</p></button>
               <button className='boton editar ms-2' onClick={setEdit=>(setEditar(false))} ><p className='boton-texto'>Cancelar</p></button>
-              <button className='boton eliminar ms-2' onClick={handleSubmit(eliminar)}><p className='boton-texto'>Eliminar cuenta</p></button>
+              {/* <button className='boton eliminar ms-2' onClick={handleSubmit(eliminar)}><p className='boton-texto'>Eliminar cuenta</p></button> */}
             </div>
             :
-            <button className='boton editar' onClick={setEdit}><p className='boton-texto'>Editar datos</p></button>
+            <div>
+            {password?
+              <>
+                <button className='boton guardar' onClick={handleSubmit(changePasword)}><p className='boton-texto'>Guardar contraseña</p></button>
+                <button className='boton editar ms-2' onClick={setEdit=>(setpassword(!password))} ><p className='boton-texto'>Cancelar</p></button>
+              </>
+              :
+              <>
+                <button className='boton editar' onClick={setEdit}><p className='boton-texto'>Editar datos</p></button>
+                <button className='boton eliminar ms-2' onClick={()=>setpassword(!password)}><p className='boton-texto'>Cambiar Contraseña</p></button>
+              </>
+            }
+            </div>
           }
         </div>
     </div>

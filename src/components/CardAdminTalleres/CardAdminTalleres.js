@@ -41,7 +41,7 @@ function CardAdminTalleres({cuit, direccion, localidad, email, nombre, provincia
     window.location.reload()
   }
   const editarContraseña=async(data)=>{
-    const resp = await fetch(`${urlBE}registro`, {
+    const resp = await fetch(`${urlBE}registro/reset`, {
       method: 'PUT',
       body: JSON.stringify(data),
       headers:{
@@ -71,7 +71,7 @@ function CardAdminTalleres({cuit, direccion, localidad, email, nombre, provincia
         <div className="accordion-body">
           {
             editar?
-            <input type="text" name='logo' id='logo' {...register("logo")}/>
+            <input type="text" name='logo' id='logo' {...register("logo")} defaultValue={logo} className='reparacion-input fs-5 fw-normal w-100'/>
             :
             <img src={logo} alt="Logo empresa" className='w-25 img-logo'/>
 
@@ -97,10 +97,10 @@ function CardAdminTalleres({cuit, direccion, localidad, email, nombre, provincia
           {
             contraseña?
             <div>
-              <label>contraseña:</label>
-              <input type="text" name='contraseña' id='contrasena' {...register("contrasena")}/>
-              <label>Repetir contraseña:</label>
-              <input type="text" name='repeatcontrasena' id='repeatcontrasena' {...register("repeatcontrasena")}/>
+              <label className='fs-5 fw-bold'>contraseña:</label>
+              <input type="text" name='contraseña' id='contrasena' {...register("contrasena")} className='reparacion-input fs-5 fw-bold w-25 ps-2'required/>
+              <label className='fs-5 fw-bold'>Repetir contraseña:</label>
+              <input type="text" name='repeatcontrasena' id='repeatcontrasena' {...register("repeatcontrasena")} className='reparacion-input fs-5 fw-normal w-25 ps-2' required/>
             </div>
             :
             null
@@ -118,11 +118,11 @@ function CardAdminTalleres({cuit, direccion, localidad, email, nombre, provincia
               {
                 contraseña?
                 <div className='d-flex'>
-                <button className='boton editar ms-2' onClick={()=>(handleSubmit(editarContraseña))} ><p className='boton-texto'>Guardar contraseña</p></button>
+                <button className='boton editar ms-2' onClick={handleSubmit(editarContraseña)} ><p className='boton-texto'>Guardar contraseña</p></button>
                 <button className='boton editar ms-2' onClick={()=>(setContraseña(false))} ><p className='boton-texto'>Cancelar</p></button>
                 </div>
                 :
-                <button className='boton editar ms-2' onClick={()=>(setContraseña(true))} ><p className='boton-texto'>Editar contraseña</p></button>
+                <button className='boton editar ms-2' onClick={()=>(setContraseña(true))} ><p className='boton-texto'>Reestablecer contraseña</p></button>
               }
               <button className='boton editar ms-2 mt-2' onClick={setEdit}><p className='boton-texto'>Editar datos</p></button>
             </div>

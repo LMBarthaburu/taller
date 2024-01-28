@@ -120,11 +120,12 @@ function AgregarTrabajo() {
             <input type="text" className="input-trabajo" name="detalle" id="detalle" placeholder="Detalle del problema" {...register("detalle")}required/> 
             <input type="text" className="input-trabajo" name="observaciones" id="observaciones" placeholder="Observaciones" {...register("observaciones")}required/> 
         </div>
+        <p className='px-md-2'>Da seguimiento a todas tus reparaciones en {datos.nombre} con tu numero de reparaciÓn a traves de www.mitaller.com</p>
       </div>
     <div className='text-center'>
       {
         spinner? 
-        <div className="spinner-border" role="status">
+        <div className="spinner-border mt-2" role="status">
         <span className="visually-hidden">Loading...</span>
         </div>
         :
