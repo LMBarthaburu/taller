@@ -135,6 +135,13 @@ const urlBE = process.env.REACT_APP_URL_BE
                     :
                     <input type="text" value={datos.provincia} readOnly="readonly"  className='input-readonly'/>
                 }
+                <p className='m-0'>Pagina Web:</p>
+                {
+                  editar?
+                    <input type="text"  className='input-edit'  {...register('url')}/>
+                    :
+                    <input type="text" value={datos.url} readOnly="readonly"  className='input-readonly'/>
+                }
                 <p className='m-0'>Rubro:</p>
                 {
                   editar?

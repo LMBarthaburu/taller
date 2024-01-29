@@ -58,7 +58,7 @@ function AdminTalleres() {
         <div className="accordion accordion-flush mb-2" id="accordion">
         {
           talleres.map(item=>
-          <CardAdminTalleres cuit={item.cuit} direccion={item.direccion} localidad={item.localidad} email={item.email} nombre={item.nombre} provincia={item.provincia} rubro={item.rubro} telefono={item.telefono} destacado={item.destacado} _id={item._id} logo={item.logo} key={item._id}/>
+          <CardAdminTalleres cuit={item.cuit} direccion={item.direccion} localidad={item.localidad} email={item.email} nombre={item.nombre} provincia={item.provincia} rubro={item.rubro} telefono={item.telefono} destacado={item.destacado} _id={item._id} logo={item.logo} key={item._id} url={item.url}/>
           )
         }
       </div>

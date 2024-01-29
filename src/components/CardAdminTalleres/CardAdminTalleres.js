@@ -4,7 +4,7 @@ import '../DataEmpresa/dataEmpresa.css'
 
 
 
-function CardAdminTalleres({cuit, direccion, localidad, email, nombre, provincia, rubro, telefono, destacado,logo,_id }) {  
+function CardAdminTalleres({cuit, direccion, localidad, email, nombre, provincia, rubro, telefono, destacado,logo,_id, url }) {  
   const urlBE = process.env.REACT_APP_URL_BE
   const [editar, setEditar] = useState(false)
   const [contraseña, setContraseña]=useState(false)
@@ -80,6 +80,7 @@ function CardAdminTalleres({cuit, direccion, localidad, email, nombre, provincia
           <h5 className='m-0'> <span className='fw-bold'>Telefono: </span>{telefono}</h5>
           <h5 className='m-0'> <span className='fw-bold'>Email: </span>{email}</h5>
           <h5 className='m-0'> <span className='fw-bold'>DNI/CUIT: </span>{cuit}</h5>
+          <h5 className='m-0'> <span className='fw-bold'>Pagina web: </span>{url}</h5>
           <h5 className='m-0'> <span className='fw-bold'>Dirección: </span>{direccion}</h5>
           <h5 className='m-0'> <span className='fw-bold'>Localidad: </span>{localidad}</h5>
           <h5 className='m-0'> <span className='fw-bold'>Provincia: </span>{provincia}</h5>

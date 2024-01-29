@@ -62,6 +62,7 @@ function AgregarTrabajo() {
     setValue("localidad", datos.localidad)
     setValue("provincia", datos.provincia)
     setValue("idEmpresa", datos._id)
+    setValue("url", datos.url)
   }, [datos, setValue])
 
   useEffect(()=>{
@@ -108,6 +109,7 @@ function AgregarTrabajo() {
             <input type="text" className="input-trabajo" id="direccion" placeholder="direccion" value={`${datos.direccion}`}  {...register("direccion")}readOnly/>
             <input type="text" className="input-trabajo" id="localidad" placeholder="Localidad" value={`${datos.localidad}`}  {...register("localidad")}readOnly/>
             <input type="text" className="input-trabajo" id="provincia" placeholder="Provincia" value={`${datos.provincia}`}  {...register("provincia")}readOnly/>
+            <input type="text" className="input-trabajo" id="url" placeholder="url" value={`${datos.url}`}  {...register("url")}readOnly/>
         </div>
         <h5 className='mb-1 mt-2'>Datos del cliente:</h5>
         <div className='d-flex flex-wrap justify-content-evenly'>

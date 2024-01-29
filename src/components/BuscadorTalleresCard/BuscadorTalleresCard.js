@@ -1,7 +1,7 @@
 import React from 'react'
 import './buscadorTalleresCard.css'
 
-function BuscadorTalleresCard({nombre, telefono, direccion, localidad, provincia, rubro,logo, _id}) {
+function BuscadorTalleresCard({nombre, telefono, direccion, localidad, provincia, rubro,logo, _id,url}) {
   return (
     <div className='card-buscador-taller d-flex justify-content-center align-items-center'>
       <div className='col-3 text-center'>      
@@ -12,6 +12,7 @@ function BuscadorTalleresCard({nombre, telefono, direccion, localidad, provincia
       <h6 className='m-0'>Telefono: {telefono}</h6>
       <h6 className='m-0'>Dirección: {direccion} - {localidad} - {provincia}</h6>
       <h6 className='m-0'>Rubro: {rubro}</h6>
+      <a href={url} target='_blank' rel='noreferrer' className='text-decoration-none'><p className='fw-bold'>{url}</p></a>
       </div>
     </div>
   )

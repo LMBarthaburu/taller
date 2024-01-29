@@ -67,7 +67,7 @@ const clean =(event)=>{
     <div className='container mt-3'>
       <h3>Lista de reparaciones:</h3>
       <form className='mb-2'>
-        <input type="text" placeholder='Ingrese Nombre, Numero de reparacion o DNI/CUIT' id='filtro' className='filtro-input'/>
+        <input type="text" placeholder='Ingrese Nombre, Numero de reparacion o DNI/CUIT' id='filtro' className='filtro-input w-100'/>
         <div className='py-2'>
           <label>Filtrar por estado de reparación: </label>
           <select className='buscador-taller-select' placeholder="estado" id="estado-opciones" aria-describedby="Estado de la reparación">
