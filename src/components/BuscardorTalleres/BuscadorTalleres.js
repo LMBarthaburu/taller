@@ -50,7 +50,7 @@ function BuscadorTalleres() {
             :
             talleres.map(item=>
               <div>
-                <BuscadorTalleresCard key={item._id} nombre={item.nombre} telefono={item.telefono} localidad={item.localidad} direccion={item.direccion} provincia={item.provincia} rubro={item.rubro} logo={item.logo}/>
+                <BuscadorTalleresCard key={item._id} nombre={item.nombre} telefono={item.telefono} localidad={item.localidad} direccion={item.direccion} provincia={item.provincia} rubro={item.rubro} logo={item.logo} url={item.url}/>
               </div>
               )
         }

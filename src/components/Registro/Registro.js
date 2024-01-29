@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './registro.css'
 import { useForm  } from 'react-hook-form'
 import {Rubros} from '../../assest/db/rubros'
@@ -7,6 +7,20 @@ import {Rubros} from '../../assest/db/rubros'
 function Registro() {
   const { register , handleSubmit} = useForm()
   const urlBE = process.env.REACT_APP_URL_BE
+
+  const registerAvailable =()=>{
+    const logeado = JSON.parse(localStorage.getItem('Admin'))
+    if(!logeado){
+      window.location.href='/login' 
+    }else{
+      return
+    }
+  }
+  
+  useEffect(() => {
+    registerAvailable()
+  }, [])
+  
 
   const onSubmit = async(data) => {
     const resp = await fetch( `${urlBE}registro`, {
@@ -44,7 +58,8 @@ function Registro() {
           <option value="Si">Si</option>
         </select>
         <input type="text" className="input-registro" name="email" id="email" placeholder="Email" {...register("email")} required/> 
-        <input type="text" className="input-registro" name="logo" id="logo" placeholder="Url del logo" {...register("logo")} required/> 
+        <input type="text" className='input-registro' name='url' id='url' placeholder='Pagina web'{...register("url")} />
+        <input type="text" className="input-registro" name="logo" id="logo" placeholder="Url del logo" {...register("logo")} /> 
         <input type="password" className="input-registro" name="password" id="password" placeholder="Contraseña" {...register("contrasena")} autoComplete='new-contraseña' required/>
         <input type="password" className="input-registro" name="repeatpassword" id="repeatpassword" placeholder="Repetir Contraseña" {...register("repeatcontrasena")} autoComplete='new-contraseña' required/> 
         <button type="submit" className="buscador-boton w-100">Dar de alta</button>                

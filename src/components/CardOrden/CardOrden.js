@@ -2,7 +2,7 @@ import React from 'react'
 import './cardOrden.css'
 import html2pdf from 'html2pdf.js';
 
-function CardOrden({nombre, telefono, cuit, modelo, serie, fecha, detalle, observaciones, numero, estado, empresa, contacto, localidad, direccion, provincia,trabajoRealizado, costo, idEmpresa, fechaEntrega}) {
+function CardOrden({nombre, telefono, cuit, modelo, serie, fecha, detalle, observaciones, numero, estado, empresa, contacto, localidad, direccion, provincia,trabajoRealizado, costo, idEmpresa, fechaEntrega, url}) {
 
   const imprimirSegmento = () => {
     const element = document.getElementById('orden-de-reparacion');
@@ -41,6 +41,7 @@ function CardOrden({nombre, telefono, cuit, modelo, serie, fecha, detalle, obser
             <h5 className='buscador-card-categoria'>Localidad: <span className='fw-normal'>{localidad}</span></h5>
             <h5 className='buscador-card-categoria'>Provincia: <span className='fw-normal'> {provincia}</span></h5>
             <h6 className='buscador-card-categoria'>ID empresa: <span className='fw-normal'>{idEmpresa}</span></h6>
+            <h6 className='buscador-card-categoria'>Pagina web: <span className='fw-normal'>{url}</span></h6>
           </div>
         </div>
       </div>

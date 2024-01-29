@@ -79,7 +79,8 @@ function LogInForm() {
                 </div>
                 :
                 <button type="submit" className="buscador-boton my-5 py-2">Ingresar</button>
-              }          
+              }
+            <p>olvidaste tu contraseña? <a href='/contacto' className='link-login text-decoration-none'> Has click aqui!</a></p>      
           </form>
             <a href='/' className='link-login'>volver al inicio</a>
         </div>

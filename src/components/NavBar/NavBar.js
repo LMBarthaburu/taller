@@ -42,7 +42,7 @@ function NavBar() {
                 <a className="nav-link" href="/#servicios">Servicios</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href='/#contacto'>Contacto</a>
+                <a className="nav-link" href='/contacto'>Contacto</a>
               </li>
               <li className="nav-item ">
                 {
