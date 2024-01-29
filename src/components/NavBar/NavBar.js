@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './navBar.css'
+import { Link,NavLink } from 'react-router-dom'
 
 function NavBar() {
   const [logeado, setlogin] = useState(false)
@@ -32,17 +33,17 @@ function NavBar() {
     <>
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid d-flex justify-content-between">
-          <a className="navbar-brand" href="/">MI TALLER</a>
+          <Link className="navbar-brand" to="/">MI TALLER</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse text-center d-lg-flex justify-content-lg-end" id="navbarNav">
             <ul className="navbar-nav ">
               <li className="nav-item">
-                <a className="nav-link" href="/#servicios">Servicios</a>
+                <NavLink className="nav-link" to="/#servicios">Servicios</NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href='/contacto'>Contacto</a>
+                <NavLink className="nav-link" to='/contacto'>Contacto</NavLink>
               </li>
               <li className="nav-item ">
                 {
@@ -53,7 +54,7 @@ function NavBar() {
                         {usuario?.userAdmin?.nombre}
                       </button>
                       <ul className='dropdown-menu text-center' aria-labelledby="dropdownMenuButton1">
-                        <li><a className='nav-link' href="/PerfilUsuario">Perfil</a></li>
+                        <li><NavLink className='nav-link' to="/PerfilUsuario">Perfil</NavLink></li>
                         <li><button className='nav-btn nav-link w-100' onClick={logout}>Cerrar Sesión</button></li>
                       </ul>
                     </div>
