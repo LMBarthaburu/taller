@@ -1,4 +1,9 @@
+.agregar-trabajo{
+  width: 100%;
+  justify-content: center;
+}
 .agregar-box{
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

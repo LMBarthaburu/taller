@@ -65,7 +65,7 @@ const clean =(event)=>{
 }
 
   return (
-    <div className='container mt-3'>
+    <div className='container mt-3 data-empresa'>
       <h3>Lista de trabajos realizados/pendientes:</h3>
       <form className='mb-2'>
         <input type="text" placeholder='Ingrese Nombre, Numero de reparacion o DNI/CUIT' id='filtro' className='filtro-input'/>

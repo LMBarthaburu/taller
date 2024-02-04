@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import AgregarTrabajo from '../../components/AgregarTrabajo/AgregarTrabajo'
-import MisReparaciones from '../../components/MisReparaciones/MisReparaciones'
 import NavBar from '../../components/NavBar/NavBar'
 import DataEmpresa from '../../components/DataEmpresa/DataEmpresa'
+import MisReparaciones from '../../components/MisReparaciones/MisReparaciones'
+import AgregarTrabajo from '../../components/AgregarTrabajo/AgregarTrabajo'
 
 
 function PerfilCliente() {
