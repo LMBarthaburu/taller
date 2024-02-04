@@ -41,7 +41,7 @@ function Buscador() {
     <div className='buscador container' id='buscador-section'>
       <h2 className='text-center buscador-titulo'>Consulta aquí el <br /><span className='buscador-titulo-span'>estado de tu trabajo:</span></h2>
       <form action="" onSubmit={buscar} className='d-flex flex-column justify-conten-center align-items-center mb-4'>
-        <input type="text" placeholder='Ingresa aquí tu numero de reparación'  ref={buscadorRef}/>
+        <input type="text" placeholder='Ingresa aquí tu numero de reparación (Prueba 47346410)'  ref={buscadorRef}/>
         <button className='buscador-boton mt-2' type='submit'>Buscar</button>
       </form>
       <div className='d-none' id='buscador-texto'>

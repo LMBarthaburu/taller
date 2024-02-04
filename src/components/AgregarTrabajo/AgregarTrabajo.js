@@ -90,7 +90,7 @@ function AgregarTrabajo() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className= "container my-5 d-flex flex-column">
+    <form onSubmit={handleSubmit(onSubmit)} className= "container mb-2 d-flex flex-column agregar-trabajo">
     <h2 className="text-center py-3">Agregar Nueva Reparación</h2>
       <div className='d-flex flex-column' id='alta-de-reparacion'>
         <h5 className='mb-1 mt-2'>Numero de orden:</h5>
